@@ -67,13 +67,16 @@ TEST(tree_LCA, demo4)
 
     root->getRight()->setLeft(new TreeNode<int>(2));
     root->getRight()->setRight(new TreeNode<int>(9));
-    
+
     BinaryTree<int> tree4(root);
 
-    int output;
-
-    output = tree4.LCA(6,3);
-    std::cout << output << std::endl;
-
+    //std::cout << output << std::endl;
+    ASSERT_TRUE(tree4.LCA(4,4) == 4);
+    ASSERT_TRUE(tree4.LCA(7,7) == 7);
+    ASSERT_TRUE(tree4.LCA(7,3) == 8);
+    ASSERT_TRUE(tree4.LCA(7,8) == 8);
+    ASSERT_TRUE(tree4.LCA(8,6) == 4);
+    ASSERT_TRUE(tree4.LCA(3,2) == 4);
+    ASSERT_TRUE(tree4.LCA(8,10) == -1); //TODO, condition does not work.
 
 }
